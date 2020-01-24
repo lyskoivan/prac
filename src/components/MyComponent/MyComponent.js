@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import withHigherOrderComponent from '../hoc/withHigherOrderComponent';
+import withLog from '../hoc/withLog';
 
-const MyComponent = ({ extraProp }) => <div>{extraProp}</div>;
+const MyComponent = ({ something, hocProp }) => (
+  <div>
+    <h2>{something}</h2>
+    <p>{hocProp}</p>
+  </div>
+);
 
 MyComponent.propTypes = {
-  extraProp: PropTypes.string.isRequired,
+  hocProp: PropTypes.string.isRequired,
+  something: PropTypes.string.isRequired,
 };
 
-export default withHigherOrderComponent(MyComponent);
+export default withLog(MyComponent);

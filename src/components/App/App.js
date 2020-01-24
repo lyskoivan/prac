@@ -4,7 +4,7 @@ import MyComponent from '../MyComponent/MyComponent';
 
 class App extends Component {
   state = {
-    something: 'this project',
+    something: 'for MyCcomponent from App',
   };
 
   changeSomething = () => {
