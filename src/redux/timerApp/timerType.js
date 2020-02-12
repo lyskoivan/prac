@@ -1,5 +1,0 @@
-export default {
-  INCREMENT: 'INCREMENT',
-  DECREMENT: 'DECREMENT',
-  CHANGE_STEP: 'CHANGE_STEP',
-};
