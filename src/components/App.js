@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { getExpenses } from '../redux/budgetApp/budgetAppSelectors';
+
 import styled from 'styled-components';
 import BudgetForm from './BudgetForm';
 import ExpenseForm from './ExpenseForm';
@@ -28,7 +30,7 @@ const App = ({ expenses }) => (
 );
 
 const mapStateToProps = store => ({
-  expenses: store.budgetApp.expense,
+  expenses: getExpenses(store),
 });
 
 export default connect(mapStateToProps, null)(App);

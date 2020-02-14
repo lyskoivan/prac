@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as Actions from '../redux/budgetApp/budgetAppActions';
 
+import { getExpenses } from '../redux/budgetApp/budgetAppSelectors';
+
 import styled from 'styled-components';
 import Button from './shared/Button';
 
@@ -45,7 +47,7 @@ const ExpensesTable = ({ items = [], onRemove }) => (
 );
 
 const mapStateToProps = store => ({
-  items: store.budgetApp.expense,
+  items: getExpenses(store),
 });
 
 const mapDispatchToProps = dispatch => ({
