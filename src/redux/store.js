@@ -1,9 +1,13 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 import rootReducer from './rootReducer';
 
-const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
+const thunk = ({ dispatch, getState }) => next => action =>
+  typeof action === 'function' ? action(dispatch, getState) : next(action);
+
+const enhancer = composeWithDevTools(applyMiddleware(thunk));
+
+const store = createStore(rootReducer, enhancer);
 
 export default store;

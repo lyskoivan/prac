@@ -1,8 +1,5 @@
 import { combineReducers } from 'redux';
-import reducer from './budgetApp/budgetAppReducers';
 
-const rootReducer = combineReducers({
-  budgetApp: reducer,
-});
+import tskReducer from './tasks/tasksReducers';
 
-export default rootReducer;
+export default combineReducers({ app: tskReducer });
